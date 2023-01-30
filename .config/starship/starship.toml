@@ -1,0 +1,23 @@
+format = "$directory$character"
+
+add_newline = true
+
+[line_break]
+disabled = true
+
+#[os]
+#format = "[($name )]($style)"
+#style = "bold blue"
+#disabled = false
+
+# ~/.config/starship.toml
+
+#[os]
+#format = "on [($name )]($style)"
+#style = "bold blue"
+#disabled = false
+
+#[os.symbols]
+#Windows = " "
+#Arch = "Arch is the best! "
+
