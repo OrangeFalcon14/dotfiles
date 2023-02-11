@@ -1,0 +1,121 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passtrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
+    "modules-left": [
+        "wlr/workspaces"
+    ],
+    "modules-center": ["hyprland/window"],
+    "modules-right": [
+        "tray",
+        // "backlight",
+        "memory",
+        "cpu",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "battery",
+        "clock"
+    ],
+
+    "hyprland/window": {
+        "format": "{}",
+        "rewrite": {
+            // "": "\uf015  ",
+            // "(.*) - Visual Studio Code": "$1 "
+        }
+    },
+    "wlr/workspaces": {
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{icon}",
+        "icon": false,
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+          }
+    },
+    "cpu": {
+        "interval": 5,
+        // "format": " {}%",
+        "format": " {}%",
+        "max-length": 10,
+        "on-click": ""
+    },
+    "memory": {
+        "interval": 15,
+        // "format": " {}%",
+        "format": "<big>󰍛</big> {}%",
+        "format-alt":" {used:0.1f}G",
+        "max-length": 10
+    },
+    "custom/packages": {
+        "exec": "yay -Qq | wc -l",
+        "interval": 60,
+        "format": " {}",
+        "tooltip": false
+    },
+    "tray": {
+        "icon-size": 15,
+        "tooltip": false,
+        "spacing": 10
+    },
+    "clock": {
+        // "format": "{: %R   %d/%m}",
+        "interval": 1,
+        "format": "{: %I:%M:%S %p}",
+        // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": " Muted",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "tooltip": false,
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+}
