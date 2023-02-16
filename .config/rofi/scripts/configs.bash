@@ -4,6 +4,8 @@ declare -a options=(
     "Waybar"
     "Swaylock"
     "Alacritty"
+    "Rofi"
+    "Wlogout"
 )
 
 choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -p "Select config: ")
@@ -23,5 +25,11 @@ case $choice in
         ;;
     'Alacritty')
         alacritty --command nvim $HOME/.config/alacritty/alacritty.yml
+        ;;
+    'Rofi')
+        alacritty --command nvim $HOME/.config/rofi/config.rasi
+        ;;
+    'Wlogout')
+        code $HOME/.config/wlogout
         ;;
 esac

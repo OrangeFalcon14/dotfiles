@@ -50,6 +50,8 @@ tooltip {
 }
 
 #custom-packages,
+#custom-date,
+#custom-exit,
 #window,
 #clock,
 #battery,
@@ -70,6 +72,7 @@ tooltip {
   background: #1e1e2e;
   color: #a6adc8;
   border-radius: 5px;
+  margin-left: 3rem;
 }
 
 #clock {
@@ -98,6 +101,13 @@ tooltip {
   background-color: #a6e3a1;
 }
 
+#battery.warning {
+  color: #ef9f76;
+}
+#battery.critical:not(.charging) {
+  color: #e78284;
+}
+
 #cpu {
   background-color: #f38ba8;
 }
@@ -110,6 +120,16 @@ tooltip {
   background-color: #f9e2af;
 }
 
+#custom-date{
+  background-color: #eba0ac;
+}
+
+#custom-exit{
+  background-color: #cba6f7;
+  padding-right: 1.4em;
+  padding-left: 1em;
+}
+
 #backlight{
-  background-color: #89b4fa;
+  background-color: #fab387;
 }

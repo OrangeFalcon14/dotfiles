@@ -12,8 +12,14 @@ for file in files:
 
 choice = popen(f"echo -e {output_str} | rofi -dmenu -sep ' ' -p 'Select Wallpaper'").read()
 
+if choice not in files:
+    exit()
+
 path = join(BACKGROUNDS_PATH, choice)
 
-path = path.replace(" ", "\ ")
 
-system("hyprctl hyprpaper wallpaper DP-1," + path)
+with open(f"{environ['HOME']}/.config/hypr/hyprpaper.conf", "a") as file:
+    file.write(f"wallpaper = eDP-1, {path}")
+
+system("killall hyprpaper")
+system("hyprpaper &")
